@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* gradient color - pry-#1108a7 , sec-#cc0c97, near-white - #f6f3f5, near black- #300130 */
+*{
+    transition: all ease 100ms;
+}
+/* Gradient Text Effect */
+.text-gradient {
+    background: linear-gradient(45deg, #1108a7, #cc0c97);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .typewriter {
+    display: inline-block;
+    border-right: 2px solid rgb(255, 255, 255);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.75s infinite;
+  }
+  
+  /* Typewriting Animation */
+  @keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: rgb(255, 255, 255); }
+  }
+  
+  /* Slide-Up Animations */
+  @keyframes slideIn {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  
+  .slide-in {
+    animation: slideIn 0.6s ease forwards; /* Smooth slide-in */
+  }
+  
+  .slide-out {
+    animation: slideOut 0.6s ease forwards; /* Smooth slide-out */
+  }
+  
+  /* Animation to move the message icon */
+@keyframes slide-up {
+  0% {
+    transform: translate(0, 10%); /* Center-right starting position */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -20%); /* Top-right ending position */
+    opacity: 1;
+  }
+}
+
+.icon-slide-up {
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: slide-up 1.5s ease-out forwards;
+  z-index: -1;
+}
