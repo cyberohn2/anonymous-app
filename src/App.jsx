@@ -18,7 +18,6 @@ function App() {
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/message" element={<Message />}></Route>
           <Route exact path="/user-profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
-          <Route exact path="/test-ui" element={<Profile />}></Route>
         </Routes>
         <Footer />
       </Router>
