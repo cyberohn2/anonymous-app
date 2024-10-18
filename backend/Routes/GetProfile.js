@@ -36,4 +36,4 @@ const GetProfile = async (req, res) =>{
      }
 }
 
-module.exports = GetProfile;
+export default GetProfile;
