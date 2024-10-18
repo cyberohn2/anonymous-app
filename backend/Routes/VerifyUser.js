@@ -44,4 +44,4 @@ const VerifyUser = async (req, res) =>{
     }
 }
 
-module.exports = VerifyUser;
+export default VerifyUser;
