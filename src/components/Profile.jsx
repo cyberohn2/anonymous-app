@@ -29,6 +29,7 @@ const shortenProfileLink = async (url) => {
   try {
     const response = await fetch(`/shorten-url?url=${url}`);
     const data = await response.json(); // Parse the response as JSON
+    console.log(data)
     return data.shortenedUrl; // Return the shortened URL from the JSON response
   } catch (error) {
     console.error('Error shortening the URL:', error);
