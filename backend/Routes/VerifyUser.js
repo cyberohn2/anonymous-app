@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import jwt from ('jsonwebtoken'); // JWT package for token generation
-import bcrypt from ('bcrypt'); // bcrypt for password hashing
+import jwt from 'jsonwebtoken'; // JWT package for token generation
+import bcrypt from 'bcrypt'; // bcrypt for password hashing
 const JWT_SECRET = process.env.JWT_SECRET; // Store securely (env variable)
 import anonymousAppUser from "../Models/user.js";
 
