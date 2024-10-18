@@ -22,4 +22,4 @@ const AddMessage = async (req, res) =>{
     }
 }
 
-module.exports = AddMessage;
+export default AddMessage;
