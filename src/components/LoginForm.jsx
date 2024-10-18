@@ -17,7 +17,7 @@ const LoginForm = ({ onClose }) => {
       password,
     };
 
-    fetch('http://localhost:3001/verify-user', {
+    fetch('/verify-user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

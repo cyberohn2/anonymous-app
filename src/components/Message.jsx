@@ -48,7 +48,7 @@ const Message = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/add-message', {
+      const response = await fetch('/add-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

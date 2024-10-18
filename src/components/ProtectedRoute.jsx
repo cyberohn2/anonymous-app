@@ -25,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
     }
 
     // Send POST request using fetch to verify the token
-    fetch('http://localhost:3001/verify-token', {
+    fetch('/verify-token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const ProtectedRoute = ({ children }) => {
         setIsAuthenticated(true); // Token is valid
 
         // Fetch user data from the backend if token is valid
-        return fetch('http://localhost:3001/profile', {
+        return fetch('/profile', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`, // Send the token in the headers
