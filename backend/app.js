@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser'); // For managing cookies
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT;
 const NewUser = require('./Routes/NewUser');
 const VerifyUser = require('./Routes/VerifyUser');
 const VerifyToken = require('./Routes/VerifyToken');
