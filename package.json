@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cd backend && node app.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "cd backend && node app.cjs"
+    "start": "vite build && cd backend && node app.cjs"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
