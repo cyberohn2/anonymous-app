@@ -47,6 +47,18 @@ app.post('/add-message', async (req, res, next) => {
     AddMessage.default(req, res, next);
 });
 
+app.get('/shorten-url', async (req, res) => {
+  const longUrl = req.query.url;
+  try {
+    const apiUrl = `https://ulvis.net/API/write/get?url=${longUrl}`;
+    const response = await fetch(apiUrl);
+    const shortenedUrl = await response.text();
+    res.json({ shortenedUrl });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to shorten URL' });
+  }
+});
+
 // Fallback route to serve the React app
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
