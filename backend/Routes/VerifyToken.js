@@ -1,5 +1,6 @@
-require('dotenv').config();
-const jwt = require('jsonwebtoken'); // JWT package for token generation
+import dotenv from 'dotenv';
+dotenv.config();
+import jwt from 'jsonwebtoken'; // JWT package for token generation
 const JWT_SECRET = process.env.JWT_SECRET; // Store securely (env variable)
 
 

@@ -1,7 +1,8 @@
-require('dotenv').config();
-const jwt = require('jsonwebtoken'); // JWT package for token generation
+import dotenv from 'dotenv';
+import jwt from "jsonwebtoken"// JWT package for token generation
 const JWT_SECRET = process.env.JWT_SECRET; // Store securely (env variable)
-const anonymousAppUser = require("../Models/user");
+import anonymousAppUser from "../Models/user";
+dotenv.config();
 
 const GetProfile = async (req, res) =>{
      // Extract the JWT from cookies

@@ -1,5 +1,6 @@
-const bcrypt = require('bcrypt');
-const anonymousAppUser = require('../Models/user');
+import bcrypt from 'bcrypt';
+import anonymousAppUser from "../Models/user";
+
 
 const NewUser = async (req, res) =>{
     const { email, username, password } = req.body;

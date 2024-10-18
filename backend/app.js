@@ -1,16 +1,20 @@
-require('dotenv').config();
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser'); // For managing cookies
+import dotenv from 'dotenv';
+import express from 'express';
+import path from 'path';
+import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser'; // For managing cookies
+
+import NewUser from './Routes/NewUser';
+import VerifyUser from './Routes/VerifyUser';
+import VerifyToken from './Routes/VerifyToken';
+import GetProfile from './Routes/GetProfile';
+import AddMessage from './Routes/AddMessage';
+
+dotenv.config(); // Initialize dotenv
 
 const app = express();
 const port = process.env.PORT || 3001;
-const NewUser = require('./Routes/NewUser');
-const VerifyUser = require('./Routes/VerifyUser');
-const VerifyToken = require('./Routes/VerifyToken');
-const GetProfile = require('./Routes/GetProfile');
-const AddMessage = require('./Routes/AddMessage');
+
 
 // Middleware
 app.use(express.static(path.join(__dirname, "../dist")));

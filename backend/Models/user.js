@@ -21,4 +21,4 @@ const userSchema = new Schema({
 
 const anonymousAppUser = mongoose.model('anonymousAppUser', userSchema)
 
-module.exports = anonymousAppUser;
+export default anonymousAppUser;
