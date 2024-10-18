@@ -42,6 +42,7 @@ const shortenProfileLink = async (url) => {
     const fetchShortenedLink = async () => {
       setLoading(true);
       const shortLink = await shortenProfileLink(userProfileLink);
+      console.log(shortLink);
       setShortenedLink(shortLink);
       setLoading(false);
     };
