@@ -1,4 +1,4 @@
-import anonymousAppUser from "../Models/user";
+import anonymousAppUser from "../Models/user.js";
 
 const AddMessage = async (req, res) =>{
     const { username, message } = req.body;
