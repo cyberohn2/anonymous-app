@@ -24,20 +24,12 @@ const Profile = () => {
   const userGender = "male"; // Default gender
   const userProfileLink = `${window.location.origin}/message?user=${username}`;
 
-  // Function to shorten the URL using CleanURI API
+  // Function to shorten the URL using Ulvis API
   const shortenProfileLink = async (url) => {
     try {
-      const encodedUrl = encodeURIComponent(url);
-      const response = await fetch('https://cleanuri.com/api/v1/shorten', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `url=${encodedUrl}`,
-      });
-
-      const data = await response.json();
-      return data.result_url; // Return the shortened URL
+      const response = await fetch(`https://ulvis.net/API/write/get?url=${url}`);
+      const data = await response.text();
+      return data; // Return the shortened URL (Ulvis API returns plain text)
     } catch (error) {
       console.error('Error shortening the URL:', error);
       return url; // In case of an error, return the original URL
