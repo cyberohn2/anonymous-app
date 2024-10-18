@@ -6,18 +6,11 @@ const cookieParser = require('cookie-parser'); // For managing cookies
 
 const app = express();
 const port = process.env.PORT || 3001;
-const NewUser = require('./Routes/NewUser');
-const VerifyUser = require('./Routes/VerifyUser');
-const VerifyToken = require('./Routes/VerifyToken');
-const GetProfile = require('./Routes/GetProfile');
-const AddMessage = require('./Routes/AddMessage');
-
 
 // Middleware
 app.use(express.static(path.join(__dirname, "../dist")));
 app.use(express.json()); // Enable JSON parsing for incoming requests
 app.use(cookieParser()); // Parse cookies from incoming requests
-
 
 // MongoDB connection
 const dbURI = process.env.MONGO_URI;
@@ -27,18 +20,32 @@ mongoose.connect(dbURI)
     }))
     .catch(err => console.log(err));
 
-// Route to create a new user (already implemented)
-app.post('/create-user', NewUser);
+// Dynamic imports for route handlers
 
+app.post('/create-user', async (req, res, next) => {
+    const NewUser = await import('./Routes/NewUser.js');
+    NewUser.default(req, res, next);
+});
 
-// Route to verify user login
-app.post('/verify-user', VerifyUser);
+app.post('/verify-user', async (req, res, next) => {
+    const VerifyUser = await import('./Routes/VerifyUser.js');
+    VerifyUser.default(req, res, next);
+});
 
-app.post('/verify-token', VerifyToken);
+app.post('/verify-token', async (req, res, next) => {
+    const VerifyToken = await import('./Routes/VerifyToken.js');
+    VerifyToken.default(req, res, next);
+});
 
-app.get('/profile', GetProfile);
+app.get('/profile', async (req, res, next) => {
+    const GetProfile = await import('./Routes/GetProfile.js');
+    GetProfile.default(req, res, next);
+});
 
-app.post('/add-message', AddMessage);
+app.post('/add-message', async (req, res, next) => {
+    const AddMessage = await import('./Routes/AddMessage.js');
+    AddMessage.default(req, res, next);
+});
 
 // Fallback route to serve the React app
 app.get('*', (req, res) => {
