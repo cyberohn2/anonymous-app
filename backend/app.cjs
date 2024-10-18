@@ -52,12 +52,13 @@ app.get('/shorten-url', async (req, res) => {
   try {
     const apiUrl = `https://ulvis.net/API/write/get?url=${longUrl}`;
     const response = await fetch(apiUrl);
-    const shortenedUrl = await response.text();
+    const shortenedUrl = await response.json(); // Parse response as JSON
     res.json({ shortenedUrl });
   } catch (error) {
     res.status(500).json({ error: 'Failed to shorten URL' });
   }
 });
+
 
 // Fallback route to serve the React app
 app.get('*', (req, res) => {
