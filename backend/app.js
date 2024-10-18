@@ -4,11 +4,11 @@ import path from 'path';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser'; // For managing cookies
 
-import NewUser from './Routes/NewUser';
-import VerifyUser from './Routes/VerifyUser';
-import VerifyToken from './Routes/VerifyToken';
-import GetProfile from './Routes/GetProfile';
-import AddMessage from './Routes/AddMessage';
+import NewUser from './Routes/NewUser.js';
+import VerifyUser from './Routes/VerifyUser.js';
+import VerifyToken from './Routes/VerifyToken.js';
+import GetProfile from './Routes/GetProfile.js';
+import AddMessage from './Routes/AddMessage.js';
 
 dotenv.config(); // Initialize dotenv
 
