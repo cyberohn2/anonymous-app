@@ -27,7 +27,7 @@ const Profile = () => {
   // Function to shorten the URL using Ulvis API
   const shortenProfileLink = async (url) => {
     try {
-      const response = await fetch(`https://ulvis.net/API/write/get?url=${url}`);
+      const response = await fetch(`/shorten-url??url=${url}`);
       const data = await response.text();
       return data; // Return the shortened URL (Ulvis API returns plain text)
     } catch (error) {
