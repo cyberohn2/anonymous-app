@@ -24,17 +24,18 @@ const Profile = () => {
   const userGender = "male"; // Default gender
   const userProfileLink = `${window.location.origin}/message?user=${username}`;
 
-  // Function to shorten the URL using Ulvis API
-  const shortenProfileLink = async (url) => {
-    try {
-      const response = await fetch(`/shorten-url??url=${url}`);
-      const data = await response.text();
-      return data; // Return the shortened URL (Ulvis API returns plain text)
-    } catch (error) {
-      console.error('Error shortening the URL:', error);
-      return url; // In case of an error, return the original URL
-    }
-  };
+// Function to shorten the URL using Ulvis API
+const shortenProfileLink = async (url) => {
+  try {
+    const response = await fetch(`/shorten-url?url=${url}`);
+    const data = await response.json(); // Parse the response as JSON
+    return data.shortenedUrl; // Return the shortened URL from the JSON response
+  } catch (error) {
+    console.error('Error shortening the URL:', error);
+    return url; // In case of an error, return the original URL
+  }
+};
+
 
   // UseEffect to generate and shorten the userProfileLink on component mount
   useEffect(() => {
