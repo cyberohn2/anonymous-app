@@ -49,6 +49,10 @@ app.post('/add-message', async (req, res, next) => {
 
 app.get('/shorten-url', async (req, res) => {
   const longUrl = req.query.url;
+     if (!longUrl) {
+    return res.status(400).json({ error: 'URL is required' });
+  }
+    
   try {
     const apiUrl = `https://ulvis.net/API/write/get?url=${longUrl}`;
     const response = await fetch(apiUrl);
