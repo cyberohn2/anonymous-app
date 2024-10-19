@@ -35,20 +35,32 @@ const MessageItem = ({ message }) => {
   };
 
   return (
-    <div className='mb-6' ref={messageRef}>
-      <div className='rounded-lg p-3 bg-[#4c4b4b] border border-gray-500 mb-2'>
-        <img className='mr-auto' width={50} src={logo} alt="Hi-me logo" />
-        <p>{message}</p>
+    <div className="flex flex-col items-center">
+      <div ref={messageRef} className="w-full md:w-2/3 lg:w-1/2 bg-[#1e1e1e] text-white p-6 rounded-xl shadow-lg relative overflow-hidden mb-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        {/* Logo and Message Content */}
+        <div className="absolute top-4 left-4 opacity-10">
+          <img src={logo} alt="Hi-me logo" className="w-16 h-16"/>
+        </div>
+        <div className="relative z-10">
+          <p className="text-base md:text-lg font-medium leading-relaxed tracking-wide mb-4">{message}</p>
+        </div>
       </div>
-      <div className='flex gap-2 items-center'>
-        {/* Clipboard Button */}
-        <button onClick={handleCopyToClipboard}>
-          <img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={clipboardIcon} alt="clipboard icon copy icon" />
-        </button>
 
-        {/* Download Button */}
-        <button onClick={handleDownloadAsImage}>
-          <img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={downloadIcon} alt="download icon" />
+      {/* Actions: Copy and Download */}
+      <div className="flex gap-4 mt-2">
+        <button
+          onClick={handleCopyToClipboard}
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white text-sm font-semibold hover:shadow-lg transition-all transform hover:scale-110"
+        >
+          <img src={clipboardIcon} alt="Copy to clipboard" className="w-5 h-5" />
+          Copy
+        </button>
+        <button
+          onClick={handleDownloadAsImage}
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-400 via-teal-500 to-blue-500 text-white text-sm font-semibold hover:shadow-lg transition-all transform hover:scale-110"
+        >
+          <img src={downloadIcon} alt="Download as image" className="w-5 h-5" />
+          Download
         </button>
       </div>
     </div>
