@@ -55,7 +55,7 @@ app.get('/shorten-url', async (req, res) => {
     
   try {
     const apiUrl = `https://ulvis.net/API/write/get?url={longUrl}&type=json`;
-    const response = await global.fetch(apiUrl);
+    const response = await fetch(apiUrl);
     const shortenedUrl = await response.json(); // Parse response as JSON
     res.json({ shortenedUrl });
   } catch (error) {
