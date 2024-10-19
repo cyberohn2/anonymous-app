@@ -23,6 +23,14 @@ const Profile = () => {
   const { username = "Unknown", email = "", messages = [] } = user;
   const userGender = "male"; // Default gender
   const userProfileLink = `${window.location.origin}/message?user=${username}`;
+
+  const handleCopyToClipboard = () => {
+  navigator.clipboard.writeText(`Write me an anonymous message on HI-ME and i won't it's you 😁 /n ${shortenedLink? shortenedLink: userProfileLink}`).then(() => {
+    alert('Message copied to clipboard!');
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+};
   
 // Function to shorten the URL using the spoo.me API with fetch
 const shortenProfileLink = async (url) => {
@@ -92,7 +100,7 @@ useEffect(() => {
         ) : (
           <>
             <p className='bg-gray-700 rounded-lg p-1 px-2 font-bold text-[.75rem] mr-2'>{shortenedLink}</p>
-            <img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px] cursor-pointer' src={clipboardIcon} alt="clipboard icon" />
+            <img  className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px] cursor-pointer' src={clipboardIcon} alt="clipboard icon" />
           </>
         )}
       </div>
