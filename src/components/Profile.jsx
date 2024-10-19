@@ -23,34 +23,51 @@ const Profile = () => {
   const { username = "Unknown", email = "", messages = [] } = user;
   const userGender = "male"; // Default gender
   const userProfileLink = `${window.location.origin}/message?user=${username}`;
-  console.log(encodeURIComponent(userProfileLink))
-
-// Function to shorten the URL using Ulvis API
+  
+// Function to shorten the URL using the spoo.me API with fetch
 const shortenProfileLink = async (url) => {
+  const apiUrl = 'https://spoo.me/';
+  const data = new URLSearchParams();
+  data.append('url', url); // Add the URL to be shortened
+
   try {
-    const response = await fetch(`/shorten-url?url=${url}`);
-    const data = await response.json(); // Parse the response as JSON
-    console.log(data)
-    return data.shortenedUrl; // Return the shortened URL from the JSON response
+    const response = await fetch(apiUrl, {
+      method: 'POST', // POST method to send data
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded', // Use URL-encoded form data
+        'Accept': 'application/json', // Expect JSON response
+      },
+      body: data.toString(), // Send the URL-encoded form data
+    });
+
+    if (response.ok) {
+      const result = await response.json(); // Parse the response as JSON
+      console.log('Shortened URL:', result);
+      return result.shortenedUrl; // Return the shortened URL from the response
+    } else {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
   } catch (error) {
     console.error('Error shortening the URL:', error);
-    return url; // In case of an error, return the original URL
+    return url; // Return the original URL in case of an error
   }
 };
 
 
-  // UseEffect to generate and shorten the userProfileLink on component mount
-  useEffect(() => {
-    const fetchShortenedLink = async () => {
-      setLoading(true);
-      const shortLink = await shortenProfileLink(encodeURIComponent(userProfileLink));
-      console.log(shortLink);
-      setShortenedLink(shortLink);
-      setLoading(false);
-    };
 
-    fetchShortenedLink();
-  }, [userProfileLink]);
+// UseEffect to generate and shorten the userProfileLink on component mount
+useEffect(() => {
+  const fetchShortenedLink = async () => {
+    setLoading(true);
+    const shortLink = await shortenProfileLink(userProfileLink); // Pass the user profile link to the updated function
+    console.log(shortLink);
+    setShortenedLink(shortLink); // Set the shortened link in state
+    setLoading(false);
+  };
+
+  fetchShortenedLink();
+}, [userProfileLink]);
+
 
   // Handle logout function
   const handleLogout = () => {
