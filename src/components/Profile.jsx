@@ -23,7 +23,7 @@ const Profile = () => {
   const { username = "Unknown", email = "", messages = [] } = user;
   const userGender = "male"; // Default gender
   const userProfileLink = `${window.location.origin}/message?user=${username}`;
-  console.log(userProfileLink)
+  console.log(encodeURIComponent(userProfileLink))
 
 // Function to shorten the URL using Ulvis API
 const shortenProfileLink = async (url) => {
