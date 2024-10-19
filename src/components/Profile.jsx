@@ -17,7 +17,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
 
   if (!user) {
-    return <div className="text-center text-near-white p-4">Loading user data...</div>;
+    return <div >Loading user data...</div>;
   }
 
   const { username = "Unknown", email = "", messages = [] } = user;
