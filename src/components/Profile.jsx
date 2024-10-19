@@ -43,7 +43,7 @@ const shortenProfileLink = async (url) => {
     if (response.ok) {
       const result = await response.json(); // Parse the response as JSON
       console.log('Shortened URL:', result);
-      return result.shortenedUrl; // Return the shortened URL from the response
+      return result; // Return the shortened URL from the response
     } else {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
