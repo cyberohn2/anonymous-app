@@ -6,7 +6,7 @@ import maleUserImage from '/male-user-img.png';
 import clipboardIcon from '/clipboard-icon.svg';
 import fbIcon from '/fb-icon.svg';
 import igIcon from '/ig-icon.svg';
-import mailIcon from '/mail-icon.svg';
+import whatsappIcon from '/whatsapp.svg';
 import xIcon from '/x-icon.svg';
 import MessageItem from './MessageItem';
 
@@ -110,10 +110,10 @@ useEffect(() => {
       <div className='mt-4'>
         <h2 className='font-Inter font-bold'>Share Your Link:</h2>
         <ul className='flex gap-2'>
-          <li><a target='_blank' href="https://facebook.com"><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={fbIcon} alt="facebook icon" /></a></li>
+          <li><a target='_blank' href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Write me an anonymous message on HI-ME and i won't know it's you 😁 /n ${shortenedLink? shortenedLink: userProfileLink}`)}`}><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={xIcon} alt="x/twitter icon" /></a></li>
+          <li><a target='_blank' href={`https://wa.me/text=${encodeURIComponent(`Write me an anonymous message on HI-ME and i won't know it's you 😁 /n ${shortenedLink? shortenedLink: userProfileLink}`)}`}><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={whatsappIcon} alt="mail icon" /></a></li>
+          <li><a target='_blank' href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shortenedLink ? shortenedLink : userProfileLink)}&quote=${encodeURIComponent(`Write me an anonymous message on HI-ME and I won't know it's you 😁\n${shortenedLink ? shortenedLink : userProfileLink}`)}`}><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={fbIcon} alt="facebook icon" /></a></li>
           <li><a target='_blank' href="https://facebook.com"><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={igIcon} alt="instagram icon" /></a></li>
-          <li><a target='_blank' href="https://facebook.com"><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={xIcon} alt="x/twitter icon" /></a></li>
-          <li><a target='_blank' href="https://facebook.com"><img className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px]' src={mailIcon} alt="mail icon" /></a></li>
         </ul>
       </div>
 
