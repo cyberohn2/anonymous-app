@@ -35,7 +35,7 @@ const MessageItem = ({ message }) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mb-4">
       {/* Message container with gradient background */}
       <div
         ref={messageRef}
