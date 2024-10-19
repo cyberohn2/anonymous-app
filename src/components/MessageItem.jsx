@@ -39,7 +39,7 @@ const MessageItem = ({ message }) => {
       {/* Message container with gradient background */}
       <div
         ref={messageRef}
-        className="w-full md:w-2/3 lg:w-1/2 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white p-6 rounded-2xl shadow-md mb-6 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+        className="w-full md:w-2/3 lg:w-1/2 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white p-6 rounded-2xl shadow-md mb-2 transform hover:scale-105 transition-transform duration-300 ease-in-out"
       >
         {/* Logo */}
         <div className="absolute top-4 left-4 opacity-20">
