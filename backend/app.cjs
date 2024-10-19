@@ -59,7 +59,7 @@ app.get('/shorten-url', async (req, res) => {
     const shortenedUrl = await response.json(); // Parse response as JSON
     res.json({ shortenedUrl });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to shorten URL' });
+    res.status(500).json({ error: 'Failed to shorten URL'+error.message });
   }
 });
 
