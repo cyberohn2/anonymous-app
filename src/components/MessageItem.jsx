@@ -36,13 +36,21 @@ const MessageItem = ({ message }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div ref={messageRef} className="w-full md:w-2/3 lg:w-1/2 bg-[#1e1e1e] text-white p-6 rounded-xl shadow-lg relative overflow-hidden mb-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
-        {/* Logo and Message Content */}
-        <div className="absolute top-4 left-4 opacity-10">
-          <img src={logo} alt="Hi-me logo" className="w-16 h-16"/>
+      {/* Message container with gradient background */}
+      <div
+        ref={messageRef}
+        className="w-full md:w-2/3 lg:w-1/2 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white p-6 rounded-2xl shadow-md mb-6 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+      >
+        {/* Logo */}
+        <div className="absolute top-4 left-4 opacity-20">
+          <img src={logo} alt="Hi-me logo" className="w-10 h-10"/>
         </div>
+
+        {/* Message content */}
         <div className="relative z-10">
-          <p className="text-base md:text-lg font-medium leading-relaxed tracking-wide mb-4">{message}</p>
+          <p className="text-xl font-semibold leading-snug text-center mb-2">
+            {message}
+          </p>
         </div>
       </div>
 
