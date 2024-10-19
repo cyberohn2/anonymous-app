@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -56,7 +55,7 @@ app.get('/shorten-url', async (req, res) => {
     
   try {
     const apiUrl = `https://ulvis.net/API/write/get?url=${longUrl}`;
-    const response = await fetch(apiUrl);
+    const response = await global.fetch(apiUrl);
     const shortenedUrl = await response.json(); // Parse response as JSON
     res.json({ shortenedUrl });
   } catch (error) {
