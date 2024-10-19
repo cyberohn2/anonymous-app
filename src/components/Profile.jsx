@@ -25,7 +25,7 @@ const Profile = () => {
   const userProfileLink = `${window.location.origin}/message?user=${username}`;
 
   const handleCopyToClipboard = () => {
-  navigator.clipboard.writeText(`Write me an anonymous message on HI-ME and i won't it's you 😁 /n ${shortenedLink? shortenedLink: userProfileLink}`).then(() => {
+  navigator.clipboard.writeText(`Write me an anonymous message on HI-ME and i won't know it's you 😁 /n ${shortenedLink? shortenedLink: userProfileLink}`).then(() => {
     alert('Message copied to clipboard!');
   }).catch(err => {
     console.error('Failed to copy: ', err);
