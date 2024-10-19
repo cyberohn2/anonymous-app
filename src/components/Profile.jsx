@@ -28,7 +28,7 @@ const Profile = () => {
 // Function to shorten the URL using Ulvis API
 const shortenProfileLink = async (url) => {
   try {
-    const response = await fetch(`/shorten-url?url=${encodeURIComponent(url)}`);
+    const response = await fetch(`/shorten-url?url=${url}`);
     const data = await response.json(); // Parse the response as JSON
     console.log(data)
     return data.shortenedUrl; // Return the shortened URL from the JSON response
@@ -43,7 +43,7 @@ const shortenProfileLink = async (url) => {
   useEffect(() => {
     const fetchShortenedLink = async () => {
       setLoading(true);
-      const shortLink = await shortenProfileLink(userProfileLink);
+      const shortLink = await shortenProfileLink(encodeURIComponent(userProfileLink));
       console.log(shortLink);
       setShortenedLink(shortLink);
       setLoading(false);
