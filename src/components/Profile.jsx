@@ -100,7 +100,9 @@ useEffect(() => {
         ) : (
           <>
             <p className='bg-gray-700 rounded-lg p-1 px-2 font-bold text-[.75rem] mr-2'>{shortenedLink}</p>
-            <img  className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px] cursor-pointer' src={clipboardIcon} alt="clipboard icon" />
+            <button onClick={handleCopyToClipboard}>
+              <img  className='p-2 bg-gray-500 rounded-md w-[26px] h-[26px] cursor-pointer' src={clipboardIcon} alt="clipboard icon" />
+            </button>
           </>
         )}
       </div>
