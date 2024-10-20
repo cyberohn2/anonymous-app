@@ -92,7 +92,7 @@ useEffect(() => {
   return (
     <div className="py-10 relative isolate px-4 lg:px-10 text-near-white">
       <div className='w-[200px] h-[200px] mx-auto rounded-full bg-[#4c4b4b] border border-gray-500 bg-no-repeat bg-center' style={{ backgroundImage: `url(${userGender === "male" ? maleUserImage : femaleUserImage})`, backgroundSize: "105%", backgroundPositionY: "-20%" }}></div>
-      <h1 className='text-center mt-6 font-Inter text-2xl'>Welcome, <span className='text-gradient font-Salsa'>{username}. Share your link to receive messages</span></h1>
+      <h1 className='text-center mt-6 font-Inter text-2xl'>Welcome, <span className='text-gradient font-Salsa'>{username}.</span> Share your link to receive messages</h1>
       
       <div className='flex items-center w-fit justify-center mx-auto mt-2'>
         {loading ? (
