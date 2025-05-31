@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import anonymousAppUser from "../Models/user";
+import anonymousAppUser from "../Models/user.js";
 
 
 const NewUser = async (req, res) =>{
@@ -37,4 +37,4 @@ const NewUser = async (req, res) =>{
     }
 }
 
-module.exports = NewUser;
+export default NewUser;

@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import jwt from "jsonwebtoken"// JWT package for token generation
 const JWT_SECRET = process.env.JWT_SECRET; // Store securely (env variable)
-import anonymousAppUser from "../Models/user";
+import anonymousAppUser from "../Models/user.js";
 dotenv.config();
 
 const GetProfile = async (req, res) =>{
@@ -36,4 +36,4 @@ const GetProfile = async (req, res) =>{
      }
 }
 
-module.exports = GetProfile;
+export default GetProfile;

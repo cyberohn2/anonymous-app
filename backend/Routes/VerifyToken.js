@@ -20,4 +20,4 @@ const VerifyToken = (req, res) =>{
     }
 }
 
-module.exports = VerifyToken;
+export default VerifyToken;

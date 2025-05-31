@@ -16,7 +16,6 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const token = getTokenFromCookies();
-    console.log(token)
 
     if (!token) {
       setIsAuthenticated(false); // No token, not authenticated

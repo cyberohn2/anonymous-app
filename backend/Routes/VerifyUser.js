@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
-const jwt = require('jsonwebtoken'); // JWT package for token generation
-const bcrypt = require('bcrypt'); // bcrypt for password hashing
+import jwt from 'jsonwebtoken'; // JWT package for token generation
+import bcrypt from 'bcrypt'; // bcrypt for password hashing
 const JWT_SECRET = process.env.JWT_SECRET; // Store securely (env variable)
-import anonymousAppUser from "../Models/user";
+import anonymousAppUser from "../Models/user.js";
 
 const VerifyUser = async (req, res) =>{
     const { username, password } = req.body;
@@ -44,4 +44,4 @@ const VerifyUser = async (req, res) =>{
     }
 }
 
-module.exports = VerifyUser;
+export default VerifyUser;
