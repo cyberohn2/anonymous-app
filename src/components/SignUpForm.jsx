@@ -19,7 +19,7 @@ const SignUpForm = () => {
       email,
     };
 
-    fetch('/create-user', {
+    fetch('http://localhost:3001/create-user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

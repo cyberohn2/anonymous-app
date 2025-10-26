@@ -16,7 +16,6 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const token = getTokenFromCookies();
-    console.log(token)
 
     if (!token) {
       setIsAuthenticated(false); // No token, not authenticated
@@ -25,7 +24,7 @@ const ProtectedRoute = ({ children }) => {
     }
 
     // Send POST request using fetch to verify the token
-    fetch('/verify-token', {
+    fetch('http://localhost:3001/verify-token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +43,7 @@ const ProtectedRoute = ({ children }) => {
         setIsAuthenticated(true); // Token is valid
 
         // Fetch user data from the backend if token is valid
-        return fetch('/profile', {
+        return fetch('http://localhost:3001/profile', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`, // Send the token in the headers

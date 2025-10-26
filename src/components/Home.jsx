@@ -106,21 +106,6 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="flex mx-auto w-fit gap-6">
-        <button
-          className="bg-near-white py-2 px-4 rounded-full font-semibold text-center block hover:bg-white hover:scale-110 transition-transform"
-          onClick={() => setShowSignUpForm(true)} // Show SignUpForm
-        >
-          Create Profile
-        </button>
-        <button
-          className="bg-gradient py-2 px-4 rounded-full font-semibold text-center text-near-white block hover:bg-white hover:scale-110 transition-transform"
-          onClick={() => setShowLoginForm(true)} // Show LoginForm
-        >
-          Login
-        </button>
-      </div>
-
       {/* Message icon animation */}
       {animateIcon && (
         <img

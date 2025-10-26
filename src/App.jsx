@@ -10,7 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 function App() {
 
   return (
-    <div className=" font-Inter bg-[#2b2b2b] max-w-[810px] min-h-[100vh] lg:min-h-[90vh]">
+    <div className=" font-Inter bg-[#2b2b2b] max-w-[810px] h-full ">
       <Router>
         {/* static components */}
         <Nav />
