@@ -13,6 +13,13 @@ const SignUpForm = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Check if password is at least 6 characters long
+    if (password.length < 6) {
+      setMessage("Password must be at least 6 characters long.");
+      setLoading(false);
+      return;
+    }
+
     const userData = {
       username,
       password,
